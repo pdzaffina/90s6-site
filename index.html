@@ -47,23 +47,11 @@ body {
   font-family: var(--ff-display);
   font-weight: 300;
   overflow-x: hidden;
-  cursor: none;
 }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 
-/* ── CUSTOM CURSOR ───────────────────────────────────────────────── */
-#cursor {
-  position: fixed; top: 0; left: 0; z-index: 9999;
-  width: 10px; height: 10px;
-  background: var(--honolulu);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s var(--easing), height 0.2s var(--easing), background 0.2s;
-  mix-blend-mode: screen;
-}
-#cursor.hover { width: 40px; height: 40px; background: var(--honolulu40); }
+
 
 /* ── NOISE OVERLAY ───────────────────────────────────────────────── */
 .noise {
@@ -103,7 +91,7 @@ nav.scrolled {
   letter-spacing: 0.06em;
   color: var(--slate);
 }
-.nav-links a { transition: color 0.2s; cursor: none; }
+.nav-links a { transition: color 0.2s; }
 .nav-links a:hover { color: var(--white); }
 .nav-cta {
   font-family: var(--ff-mono);
@@ -114,7 +102,7 @@ nav.scrolled {
   color: var(--honolulu);
   border-radius: 2px;
   transition: background 0.2s, color 0.2s;
-  cursor: none;
+  
 }
 .nav-cta:hover { background: var(--honolulu); color: var(--white); }
 
@@ -211,7 +199,7 @@ nav.scrolled {
   padding: 0.9rem 2rem;
   border-radius: 2px;
   transition: background 0.2s, transform 0.2s;
-  cursor: none;
+  
 }
 .btn-primary:hover { background: #0080d6; transform: translateY(-1px); }
 .btn-secondary {
@@ -222,7 +210,7 @@ nav.scrolled {
   border-bottom: 1px solid var(--slate30);
   padding-bottom: 2px;
   transition: color 0.2s, border-color 0.2s;
-  cursor: none;
+  
 }
 .btn-secondary:hover { color: var(--white); border-color: var(--white); }
 
@@ -719,7 +707,7 @@ section { position: relative; z-index: 2; }
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   color: var(--white);
-  cursor: none;
+  
   transition: background 0.2s;
 }
 .cta-submit:hover { background: #0080d6; }
@@ -729,7 +717,7 @@ section { position: relative; z-index: 2; }
   letter-spacing: 0.06em;
   color: var(--slate);
 }
-.cta-note a { color: var(--honolulu); border-bottom: 1px solid var(--honolulu40); cursor: none; }
+.cta-note a { color: var(--honolulu); border-bottom: 1px solid var(--honolulu40); }
 
 /* ── FOOTER ──────────────────────────────────────────────────────── */
 footer {
@@ -759,7 +747,7 @@ footer {
   letter-spacing: 0.08em;
   color: var(--slate);
 }
-.footer-links a { transition: color 0.2s; cursor: none; }
+.footer-links a { transition: color 0.2s; }
 .footer-links a:hover { color: var(--white); }
 
 /* ── ANIMATIONS ──────────────────────────────────────────────────── */
@@ -813,7 +801,6 @@ footer {
 <body>
 
 <div class="noise"></div>
-<div id="cursor"></div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -1101,17 +1088,6 @@ footer {
 </footer>
 
 <script>
-// ── CURSOR ────────────────────────────────────────────────────────
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top  = e.clientY + 'px';
-});
-document.querySelectorAll('a, button, .service-card, .option-card, .step').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-});
-
 // ── NAV SCROLL ───────────────────────────────────────────────────
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
