@@ -6,7 +6,7 @@ const quotes = [
   { n: 24, text: "You know what the happiest animal on Earth is? It's a goldfish. Y'know why? It's got a 10-second memory. Be a goldfish.", name: "Ted Lasso", role: "Head Coach" },
   { n: 8,  text: "Football is life.", name: "Dani Rojas", role: "Player" },
   { n: 8,  text: "Are you mad? Pandas are fat and lazy and have p***-stained fur. Lions are powerful and majestic and rule the jungle.", name: "Rebecca Welton", role: "Club Owner" },
-  { n: 8,  text: "", name: "Rebecca Welton", role: "Club Owner" },
+  { n: 8,  text: "I'm sort of famous for being almost famous.", name: "Keeley Jones", role: "Chief Marketing Officer" },
   { n: 5,  text: "F***", name: "Roy Kent", role: "Captain/Assistant Coach" },
   { n: 5,  text: "He's fine. That's it. Nothing wrong with that, most people are fine. But it's not about him. It's about why the f*** you think he deserves you. You deserve someone who makes you feel like you've been struck by f***ing lightning. Don't you dare settle for fine.", name: "Roy Kent", role: "Captain/Assistant Coach" },
   { n: 4,  text: "Fairytales do not start, nor do they end, in the dark forest. That’s something that only shows up smack dab in the middle of a story. But it will all work out.", name: "Ted Lasso", role: "Head Coach" },
