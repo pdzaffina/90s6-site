@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +16,7 @@
     --paper:#F3ECDD;
     --paper-dim:#E8DFC9;
     --ink:#1A1A1A;
+    --sharpie-blue:#006BB6;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -31,14 +33,14 @@
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
   }
-
+ 
   /* ---------- Locker room strip ---------- */
   .kit-strip{
     height:10px;
     width:100%;
     background:repeating-linear-gradient(90deg, var(--red) 0 40px, var(--gold) 40px 44px, var(--navy) 44px 84px, var(--gold) 84px 88px);
   }
-
+ 
   header.hero{
     position:relative;
     padding:4.5rem 1.5rem 5rem;
@@ -72,7 +74,7 @@
     font-size:0.68rem;
     margin-bottom:0.6rem;
   }
-
+ 
   /* ---------- Featured sign (single quote) ---------- */
   .sign{
     position:relative; z-index:1;
@@ -132,7 +134,7 @@
     color:rgba(20,33,61,0.6);
     margin-top:0.15rem;
   }
-
+ 
   /* ---------- Special: the Believe sign ---------- */
   .sign.is-believe{
     background:var(--gold);
@@ -155,18 +157,17 @@
     font-size:clamp(3.4rem, 12vw, 7rem);
     line-height:0.85;
     margin:0;
-    color:var(--navy);
+    color:var(--sharpie-blue);
     letter-spacing:0.01em;
     text-transform:uppercase;
     transform:skewY(-1.5deg);
   }
-
+ 
   .next-line{
     position:relative; z-index:1;
     display:inline-flex;
     align-items:center;
     gap:0.5rem;
-    margin-top:1.8rem;
     background:transparent;
     border:2px solid var(--gold);
     color:var(--gold);
@@ -178,11 +179,13 @@
     padding:0.7rem 1.5rem;
     border-radius:2px;
     cursor:pointer;
+    white-space:nowrap;
+    box-sizing:border-box;
     transition:background 0.2s ease, color 0.2s ease;
   }
   .next-line:hover{ background:var(--gold); color:var(--navy-dark); }
   .next-line svg{ width:16px; height:16px; }
-
+ 
   .hero-actions{
     position:relative; z-index:1;
     display:flex;
@@ -206,11 +209,13 @@
     padding:0.7rem 1.5rem;
     border-radius:2px;
     cursor:pointer;
+    white-space:nowrap;
+    box-sizing:border-box;
     transition:border-color 0.2s ease, color 0.2s ease;
   }
   .hero-share-btn:hover{ border-color:var(--paper); color:var(--paper); }
   .hero-share-btn svg{ width:16px; height:16px; }
-
+ 
   .hero-sub{
     position:relative; z-index:1;
     max-width:600px;
@@ -219,7 +224,7 @@
     color:rgba(243,236,221,0.7);
     line-height:1.6;
   }
-
+ 
   /* ---------- Section labels ---------- */
   .section-head{
     text-align:center;
@@ -240,7 +245,7 @@
     background:var(--red);
     margin:0.9rem auto 0;
   }
-
+ 
   /* ---------- Search + filter toolbar ---------- */
   .toolbar{
     max-width:1100px;
@@ -278,7 +283,7 @@
   }
   #search::placeholder{ color:rgba(243,236,221,0.4); }
   #search:focus{ border-color:var(--gold); background:rgba(255,255,255,0.09); }
-
+ 
   .chips{
     display:flex;
     flex-wrap:wrap;
@@ -300,7 +305,7 @@
   }
   .chip:hover{ border-color:var(--gold); color:var(--paper); }
   .chip.active{ background:var(--red); border-color:var(--red); color:#fff; }
-
+ 
   .result-count{
     font-family:'Caveat', cursive;
     font-size:1.15rem;
@@ -310,7 +315,7 @@
     margin:1.4rem auto 0;
     padding:0 1.5rem;
   }
-
+ 
   /* ---------- Nameplate quote board ---------- */
   .board{
     max-width:1100px;
@@ -411,7 +416,7 @@
   }
   .card-share:hover{ border-color:var(--red); color:var(--red); }
   .card-share svg{ width:11px; height:11px; }
-
+ 
   .empty{
     text-align:center;
     padding:3rem 1.5rem;
@@ -420,7 +425,7 @@
     font-size:1.4rem;
     display:none;
   }
-
+ 
   /* ---------- Table wall ---------- */
   .wall{
     background:var(--navy-dark);
@@ -428,7 +433,7 @@
     border-bottom:6px solid var(--red);
     padding:0.5rem 0 1rem;
   }
-
+ 
   footer.pitch{
     text-align:center;
     padding:3.5rem 1.5rem 4rem;
@@ -460,12 +465,12 @@
     color:rgba(243,236,221,0.35);
     margin-top:2rem;
   }
-
+ 
   :focus-visible{
     outline:3px solid var(--gold);
     outline-offset:3px;
   }
-
+ 
   .toast{
     position:fixed;
     bottom:2rem; left:50%;
@@ -491,12 +496,12 @@
 </style>
 </head>
 <body>
-
+ 
   <div class="kit-strip"></div>
-
+ 
   <header class="hero">
     <div class="eyebrow">Nelson Road, London</div>
-
+ 
     <figure class="sign" id="featured"></figure>
     <br>
     <div class="hero-actions">
@@ -509,16 +514,16 @@
         Share this line
       </button>
     </div>
-
+ 
     <p class="hero-sub">One line taped above the locker room door at a time. The rest of the wall is below, search it or filter by who said it.</p>
   </header>
-
+ 
   <section id="collection">
     <div class="section-head">
       <h2>The Full <span>Locker Room</span></h2>
       <div class="rule"></div>
     </div>
-
+ 
     <div class="toolbar">
       <div class="search-wrap">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -526,23 +531,23 @@
       </div>
       <div class="chips" id="chips"></div>
     </div>
-
+ 
     <p class="result-count" id="result-count"></p>
-
+ 
     <div class="board" id="board"></div>
     <div class="empty" id="empty">Nothing on the wall matches that. Try another search.</div>
   </section>
-
+ 
   <div class="wall"></div>
-
+ 
   <footer class="pitch">
     <div class="badge">AFCR</div>
     <p>Richmond &#39;til we die.</p>
     <div class="credit">Nelson Road &middot; Est. 1897</div>
   </footer>
-
+ 
   <div class="toast" id="toast">Link copied to clipboard</div>
-
+ 
 <script src="richmond-quotes-data.js"></script>
 <script>
   const featuredSign = document.getElementById('featured');
@@ -554,21 +559,21 @@
   const resultCount = document.getElementById('result-count');
   const emptyMsg = document.getElementById('empty');
   const toastEl = document.getElementById('toast');
-
+ 
   let featuredIndex = -1;
   let activeChar = 'All';
   let searchTerm = '';
-
+ 
   // ---------- Share / clipboard ----------
   const shareIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`;
-
+ 
   let toastTimer = null;
   function showToast(){
     toastEl.classList.add('show');
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2200);
   }
-
+ 
   function copyShareLink(id){
     const url = new URL(window.location.href);
     url.searchParams.set('id', id);
@@ -586,16 +591,16 @@
       showToast();
     });
   }
-
+ 
   heroShareBtn.addEventListener('click', () => {
     if (featuredIndex >= 0) copyShareLink(quotes[featuredIndex].id);
   });
-
+ 
   // ---------- Featured sign ----------
   function showFeatured(index){
     featuredIndex = index;
     const q = quotes[index];
-
+ 
     if (q.special){
       featuredSign.classList.add('is-believe');
       featuredSign.innerHTML = `<div class="believe-word">${q.text}</div>`;
@@ -611,15 +616,15 @@
       `;
     }
   }
-
+ 
   function pickRandom(){
     let i;
     do { i = Math.floor(Math.random() * quotes.length); } while (i === featuredIndex && quotes.length > 1);
     showFeatured(i);
   }
-
+ 
   shuffleBtn.addEventListener('click', pickRandom);
-
+ 
   const names = ['All', ...new Set(quotes.map(q => q.name))];
   names.forEach(name => {
     const btn = document.createElement('button');
@@ -633,13 +638,13 @@
     });
     chipsWrap.appendChild(btn);
   });
-
+ 
   function highlight(text, term){
     if (!term) return text;
     const re = new RegExp('(' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig');
     return text.replace(re, '<mark>$1</mark>');
   }
-
+ 
   function render(){
     const term = searchTerm.trim().toLowerCase();
     const filtered = quotes.filter(q => {
@@ -647,7 +652,7 @@
       const matchesTerm = !term || q.text.toLowerCase().includes(term) || q.name.toLowerCase().includes(term);
       return matchesChar && matchesTerm;
     });
-
+ 
     board.innerHTML = '';
     filtered.forEach((q, idx) => {
       const card = document.createElement('div');
@@ -663,20 +668,20 @@
       `;
       board.appendChild(card);
     });
-
+ 
     board.querySelectorAll('.card-share').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         copyShareLink(parseInt(btn.dataset.shareId, 10));
       });
     });
-
+ 
     emptyMsg.style.display = filtered.length ? 'none' : 'block';
     resultCount.textContent = filtered.length
       ? `Showing ${filtered.length} of ${quotes.length} lines`
       : '';
   }
-
+ 
   searchInput.addEventListener('input', (e) => {
     searchTerm = e.target.value;
     const url = new URL(window.location.href);
@@ -686,20 +691,20 @@
     history.replaceState(null, '', url.toString());
     render();
   });
-
+ 
   // ---------- Init: honor ?id= and ?q= from a shared link ----------
   (function init(){
     const params = new URLSearchParams(window.location.search);
     const qParam = params.get('q');
     const idParam = params.get('id');
-
+ 
     if (qParam){
       searchTerm = qParam;
       searchInput.value = qParam;
     }
-
+ 
     render();
-
+ 
     const sharedIndex = idParam ? quotes.findIndex(q => q.id === parseInt(idParam, 10)) : -1;
     if (sharedIndex >= 0){
       showFeatured(sharedIndex);
@@ -718,3 +723,4 @@
 </script>
 </body>
 </html>
+ 
