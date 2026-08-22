@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nelson Road &mdash; Believe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Semi+Condensed:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213D;
+    --navy-dark:#0D1729;
+    --red:#C8102E;
+    --gold:#FFC72C;
+    --paper:#F3ECDD;
+    --paper-dim:#E8DFC9;
+    --ink:#1A1A1A;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--navy);
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,0.03), transparent 40%),
+      radial-gradient(circle at 85% 70%, rgba(255,255,255,0.03), transparent 40%);
+    color:var(--paper);
+    font-family:'Barlow Semi Condensed', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  /* ---------- Locker room strip ---------- */
+  .kit-strip{
+    height:10px;
+    width:100%;
+    background:repeating-linear-gradient(90deg, var(--red) 0 40px, var(--gold) 40px 44px, var(--navy) 44px 84px, var(--gold) 84px 88px);
+  }
+
+  header.hero{
+    position:relative;
+    padding:4.5rem 1.5rem 5rem;
+    text-align:center;
+    overflow:hidden;
+    border-bottom:6px solid var(--gold);
+  }
+  header.hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(20,33,61,0.9), rgba(13,23,41,0.96)),
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 14px);
+    z-index:0;
+  }
+  .eyebrow{
+    position:relative; z-index:1;
+    font-family:'Barlow Semi Condensed', sans-serif;
+    letter-spacing:0.35em;
+    text-transform:uppercase;
+    font-size:0.78rem;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:1.6rem;
+  }
+  .eyebrow::before{
+    content:"— AFC RICHMOND —";
+    display:block;
+    color:rgba(243,236,221,0.35);
+    letter-spacing:0.3em;
+    font-size:0.68rem;
+    margin-bottom:0.6rem;
+  }
+
+  /* ---------- Featured sign (single quote) ---------- */
+  .sign{
+    position:relative; z-index:1;
+    display:inline-block;
+    max-width:640px;
+    width:100%;
+    background:#fffdf6;
+    color:var(--ink);
+    padding:2.6rem 2.8rem 2.1rem;
+    transform:rotate(-1.4deg);
+    box-shadow:0 18px 40px rgba(0,0,0,0.45);
+    border:2px solid #e4dcc4;
+  }
+  .sign::before, .sign::after{
+    content:"";
+    position:absolute;
+    width:70px; height:26px;
+    background:rgba(255,199,44,0.55);
+    top:-14px;
+    box-shadow:0 2px 4px rgba(0,0,0,0.2);
+  }
+  .sign::before{ left:-18px; transform:rotate(-38deg); }
+  .sign::after{ right:-18px; transform:rotate(38deg); }
+  .sign .tag{
+    font-family:'Barlow Semi Condensed', sans-serif;
+    font-weight:700;
+    font-size:0.72rem;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--red);
+    margin-bottom:0.6rem;
+  }
+  .sign blockquote{
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    font-size:clamp(1.9rem, 4.4vw, 2.7rem);
+    line-height:1.08;
+    margin:0;
+    color:var(--navy);
+  }
+  .sign figcaption{
+    margin-top:1.1rem;
+    font-family:'Barlow Semi Condensed', sans-serif;
+    font-size:0.95rem;
+    font-weight:700;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--red);
+  }
+  .sign figcaption .role{
+    display:block;
+    font-family:'Caveat', cursive;
+    font-weight:500;
+    text-transform:none;
+    letter-spacing:0;
+    font-size:1.05rem;
+    color:rgba(20,33,61,0.6);
+    margin-top:0.15rem;
+  }
+
+  /* ---------- Special: the Believe sign ---------- */
+  .sign.is-believe{
+    background:var(--gold);
+    border:none;
+    padding:2.6rem 3.4rem;
+    transform:rotate(-2.2deg);
+    box-shadow:0 22px 46px rgba(0,0,0,0.5);
+    animation:sign-drop 0.5s ease;
+  }
+  .sign.is-believe::before, .sign.is-believe::after{
+    background:rgba(243,236,221,0.85);
+  }
+  @keyframes sign-drop{
+    0%{ transform:rotate(-2.2deg) translateY(-14px) scale(0.96); opacity:0; }
+    100%{ transform:rotate(-2.2deg) translateY(0) scale(1); opacity:1; }
+  }
+  .believe-word{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    font-size:clamp(3.4rem, 12vw, 7rem);
+    line-height:0.85;
+    margin:0;
+    color:#111;
+    letter-spacing:0.01em;
+    text-transform:uppercase;
+    transform:skewY(-1.5deg);
+  }
+
+  .next-line{
+    position:relative; z-index:1;
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    margin-top:1.8rem;
+    background:transparent;
+    border:2px solid var(--gold);
+    color:var(--gold);
+    font-family:'Barlow Semi Condensed', sans-serif;
+    font-weight:700;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    font-size:0.85rem;
+    padding:0.7rem 1.5rem;
+    border-radius:2px;
+    cursor:pointer;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .next-line:hover{ background:var(--gold); color:var(--navy-dark); }
+  .next-line svg{ width:16px; height:16px; }
+
+  .hero-sub{
+    position:relative; z-index:1;
+    max-width:600px;
+    margin:2.2rem auto 0;
+    font-size:1.05rem;
+    color:rgba(243,236,221,0.7);
+    line-height:1.6;
+  }
+
+  /* ---------- Section labels ---------- */
+  .section-head{
+    text-align:center;
+    padding:3.5rem 1.5rem 0.5rem;
+  }
+  .section-head h2{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    letter-spacing:0.04em;
+    font-size:clamp(1.9rem, 4vw, 2.6rem);
+    margin:0;
+    color:var(--paper);
+    text-transform:uppercase;
+  }
+  .section-head h2 span{ color:var(--gold); }
+  .section-head .rule{
+    width:64px; height:4px;
+    background:var(--red);
+    margin:0.9rem auto 0;
+  }
+
+  /* ---------- Search + filter toolbar ---------- */
+  .toolbar{
+    max-width:1100px;
+    margin:2rem auto 0;
+    padding:0 1.5rem;
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+    align-items:center;
+  }
+  .search-wrap{
+    position:relative;
+    width:100%;
+    max-width:420px;
+  }
+  .search-wrap svg{
+    position:absolute;
+    left:14px; top:50%;
+    transform:translateY(-50%);
+    width:17px; height:17px;
+    color:rgba(243,236,221,0.45);
+    pointer-events:none;
+  }
+  #search{
+    width:100%;
+    background:rgba(255,255,255,0.06);
+    border:1.5px solid rgba(243,236,221,0.2);
+    color:var(--paper);
+    font-family:'Barlow Semi Condensed', sans-serif;
+    font-size:1rem;
+    padding:0.75rem 1rem 0.75rem 2.6rem;
+    border-radius:3px;
+    outline:none;
+    transition:border-color 0.2s ease, background 0.2s ease;
+  }
+  #search::placeholder{ color:rgba(243,236,221,0.4); }
+  #search:focus{ border-color:var(--gold); background:rgba(255,255,255,0.09); }
+
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.55rem;
+    justify-content:center;
+  }
+  .chip{
+    background:transparent;
+    border:1.5px solid rgba(243,236,221,0.25);
+    color:rgba(243,236,221,0.75);
+    font-family:'Barlow Semi Condensed', sans-serif;
+    font-weight:600;
+    font-size:0.82rem;
+    letter-spacing:0.03em;
+    padding:0.42rem 0.95rem;
+    border-radius:999px;
+    cursor:pointer;
+    transition:all 0.18s ease;
+  }
+  .chip:hover{ border-color:var(--gold); color:var(--paper); }
+  .chip.active{ background:var(--red); border-color:var(--red); color:#fff; }
+
+  .result-count{
+    font-family:'Caveat', cursive;
+    font-size:1.15rem;
+    color:rgba(243,236,221,0.5);
+    text-align:center;
+    max-width:1100px;
+    margin:1.4rem auto 0;
+    padding:0 1.5rem;
+  }
+
+  /* ---------- Nameplate quote board ---------- */
+  .board{
+    max-width:1100px;
+    margin:0 auto;
+    padding:1.2rem 1.5rem 4rem;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:1.6rem;
+  }
+  .card{
+    position:relative;
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:2px;
+    padding:1.6rem 1.5rem 1.4rem;
+    box-shadow:0 10px 22px rgba(0,0,0,0.35);
+    transform:rotate(var(--tilt, 0deg));
+    transition:transform 0.2s ease, box-shadow 0.2s ease, opacity 0.15s ease;
+  }
+  .card:hover{
+    transform:rotate(0deg) translateY(-4px);
+    box-shadow:0 16px 30px rgba(0,0,0,0.45);
+  }
+  .card .tape{
+    position:absolute;
+    top:-10px; left:50%;
+    transform:translateX(-50%) rotate(-3deg);
+    width:56px; height:20px;
+    background:rgba(255,199,44,0.6);
+    box-shadow:0 2px 3px rgba(0,0,0,0.2);
+  }
+  .card .num{
+    font-family:'Anton', sans-serif;
+    font-size:2.2rem;
+    color:transparent;
+    -webkit-text-stroke:1.5px var(--navy);
+    line-height:1;
+    position:absolute;
+    top:0.9rem; right:1.1rem;
+    opacity:0.55;
+  }
+  .card blockquote{
+    margin:0.6rem 3rem 1rem 0;
+    font-size:1.1rem;
+    line-height:1.4;
+    font-weight:600;
+  }
+  .card blockquote::before{ content:"\201C"; color:var(--red); }
+  .card blockquote::after{ content:"\201D"; color:var(--red); }
+  .card footer{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    font-size:0.85rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--navy);
+    font-weight:700;
+    border-top:1px dashed rgba(20,33,61,0.25);
+    padding-top:0.6rem;
+  }
+  .card footer .role{
+    font-weight:500;
+    color:rgba(20,33,61,0.6);
+    text-transform:none;
+    letter-spacing:0;
+    font-family:'Caveat', cursive;
+    font-size:1.05rem;
+  }
+  .card mark{
+    background:rgba(255,199,44,0.55);
+    color:inherit;
+    border-radius:2px;
+    padding:0 0.1em;
+  }
+
+  .empty{
+    text-align:center;
+    padding:3rem 1.5rem;
+    color:rgba(243,236,221,0.55);
+    font-family:'Caveat', cursive;
+    font-size:1.4rem;
+    display:none;
+  }
+
+  /* ---------- Table wall ---------- */
+  .wall{
+    background:var(--navy-dark);
+    border-top:6px solid var(--red);
+    border-bottom:6px solid var(--red);
+    padding:0.5rem 0 1rem;
+  }
+
+  footer.pitch{
+    text-align:center;
+    padding:3.5rem 1.5rem 4rem;
+  }
+  footer.pitch .badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:74px; height:74px;
+    border-radius:50%;
+    border:3px solid var(--gold);
+    font-family:'Anton', sans-serif;
+    font-size:1rem;
+    color:var(--gold);
+    margin-bottom:1.2rem;
+  }
+  footer.pitch p{
+    font-family:'Caveat', cursive;
+    font-size:1.6rem;
+    color:rgba(243,236,221,0.85);
+    max-width:420px;
+    margin:0 auto;
+  }
+  footer.pitch .credit{
+    font-family:'Barlow Semi Condensed', sans-serif;
+    font-size:0.75rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:rgba(243,236,221,0.35);
+    margin-top:2rem;
+  }
+
+  :focus-visible{
+    outline:3px solid var(--gold);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="kit-strip"></div>
+
+  <header class="hero">
+    <div class="eyebrow">Nelson Road, London</div>
+
+    <figure class="sign" id="featured"></figure>
+    <br>
+    <button class="next-line" id="shuffle-btn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+      Next line
+    </button>
+
+    <p class="hero-sub">One line taped above the locker room door at a time. The rest of the wall is below, search it or filter by who said it.</p>
+  </header>
+
+  <section id="collection">
+    <div class="section-head">
+      <h2>The Full <span>Locker Room</span></h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="toolbar">
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="search" placeholder="Search lines or names&hellip;" autocomplete="off">
+      </div>
+      <div class="chips" id="chips"></div>
+    </div>
+
+    <p class="result-count" id="result-count"></p>
+
+    <div class="board" id="board"></div>
+    <div class="empty" id="empty">Nothing on the wall matches that. Try another search.</div>
+  </section>
+
+  <div class="wall"></div>
+
+  <footer class="pitch">
+    <div class="badge">AFCR</div>
+    <p>Richmond &#39;til we die.</p>
+    <div class="credit">Nelson Road &middot; Est. 1897</div>
+  </footer>
+
+<script src="richmond-quotes-data.js"></script>
+<script>
+  const featuredSign = document.getElementById('featured');
+  const shuffleBtn = document.getElementById('shuffle-btn');
+  const board = document.getElementById('board');
+  const chipsWrap = document.getElementById('chips');
+  const searchInput = document.getElementById('search');
+  const resultCount = document.getElementById('result-count');
+  const emptyMsg = document.getElementById('empty');
+
+  let featuredIndex = -1;
+  let activeChar = 'All';
+  let searchTerm = '';
+
+  function showFeatured(index){
+    featuredIndex = index;
+    const q = quotes[index];
+
+    if (q.special){
+      featuredSign.classList.add('is-believe');
+      featuredSign.innerHTML = `<div class="believe-word">${q.text}</div>`;
+    } else {
+      featuredSign.classList.remove('is-believe');
+      featuredSign.innerHTML = `
+        <div class="tag">Line of the day</div>
+        <blockquote>${q.text}</blockquote>
+        <figcaption>
+          <span>${q.name}</span>
+          <span class="role">${q.role}</span>
+        </figcaption>
+      `;
+    }
+  }
+
+  function pickRandom(){
+    let i;
+    do { i = Math.floor(Math.random() * quotes.length); } while (i === featuredIndex && quotes.length > 1);
+    showFeatured(i);
+  }
+
+  shuffleBtn.addEventListener('click', pickRandom);
+  pickRandom();
+
+  const names = ['All', ...new Set(quotes.map(q => q.name))];
+  names.forEach(name => {
+    const btn = document.createElement('button');
+    btn.className = 'chip' + (name === 'All' ? ' active' : '');
+    btn.type = 'button';
+    btn.textContent = name;
+    btn.addEventListener('click', () => {
+      activeChar = name;
+      [...chipsWrap.children].forEach(c => c.classList.toggle('active', c === btn));
+      render();
+    });
+    chipsWrap.appendChild(btn);
+  });
+
+  function highlight(text, term){
+    if (!term) return text;
+    const re = new RegExp('(' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig');
+    return text.replace(re, '<mark>$1</mark>');
+  }
+
+  function render(){
+    const term = searchTerm.trim().toLowerCase();
+    const filtered = quotes.filter(q => {
+      const matchesChar = activeChar === 'All' || q.name === activeChar;
+      const matchesTerm = !term || q.text.toLowerCase().includes(term) || q.name.toLowerCase().includes(term);
+      return matchesChar && matchesTerm;
+    });
+
+    board.innerHTML = '';
+    filtered.forEach((q, idx) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.style.setProperty('--tilt', (idx % 3 === 0 ? '-1.3deg' : idx % 3 === 1 ? '0.8deg' : '-0.5deg'));
+      card.innerHTML = `
+        <div class="tape"></div>
+        <div class="num">${q.n}</div>
+        <blockquote>${highlight(q.text, term)}</blockquote>
+        <footer><span>${highlight(q.name, term)}</span><span class="role">${q.role}</span></footer>
+      `;
+      board.appendChild(card);
+    });
+
+    emptyMsg.style.display = filtered.length ? 'none' : 'block';
+    resultCount.textContent = filtered.length
+      ? `Showing ${filtered.length} of ${quotes.length} lines`
+      : '';
+  }
+
+  searchInput.addEventListener('input', (e) => {
+    searchTerm = e.target.value;
+    render();
+  });
+
+  render();
+</script>
+</body>
+</html>
