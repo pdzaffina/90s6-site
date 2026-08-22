@@ -155,7 +155,7 @@
     font-size:clamp(3.4rem, 12vw, 7rem);
     line-height:0.85;
     margin:0;
-    color:#006BB6;
+    color:var(--navy);
     letter-spacing:0.01em;
     text-transform:uppercase;
     transform:skewY(-1.5deg);
@@ -182,6 +182,34 @@
   }
   .next-line:hover{ background:var(--gold); color:var(--navy-dark); }
   .next-line svg{ width:16px; height:16px; }
+
+  .hero-actions{
+    position:relative; z-index:1;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.9rem;
+    justify-content:center;
+    margin-top:1.8rem;
+  }
+  .hero-share-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    background:transparent;
+    border:2px solid rgba(243,236,221,0.35);
+    color:rgba(243,236,221,0.85);
+    font-family:'Barlow Semi Condensed', sans-serif;
+    font-weight:700;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    font-size:0.85rem;
+    padding:0.7rem 1.5rem;
+    border-radius:2px;
+    cursor:pointer;
+    transition:border-color 0.2s ease, color 0.2s ease;
+  }
+  .hero-share-btn:hover{ border-color:var(--paper); color:var(--paper); }
+  .hero-share-btn svg{ width:16px; height:16px; }
 
   .hero-sub{
     position:relative; z-index:1;
@@ -306,6 +334,11 @@
     transform:rotate(0deg) translateY(-4px);
     box-shadow:0 16px 30px rgba(0,0,0,0.45);
   }
+  .card.flash{
+    outline:3px solid var(--gold);
+    outline-offset:2px;
+    box-shadow:0 0 0 7px rgba(255,199,44,0.22), 0 16px 30px rgba(0,0,0,0.45);
+  }
   .card .tape{
     position:absolute;
     top:-10px; left:50%;
@@ -358,6 +391,26 @@
     border-radius:2px;
     padding:0 0.1em;
   }
+  .card-share{
+    display:inline-flex;
+    align-items:center;
+    gap:0.3rem;
+    background:none;
+    border:1px solid rgba(20,33,61,0.25);
+    color:rgba(20,33,61,0.55);
+    font-family:'Barlow Semi Condensed', sans-serif;
+    font-weight:600;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:0.3rem 0.6rem;
+    border-radius:999px;
+    cursor:pointer;
+    margin-top:0.7rem;
+    transition:border-color 0.18s ease, color 0.18s ease;
+  }
+  .card-share:hover{ border-color:var(--red); color:var(--red); }
+  .card-share svg{ width:11px; height:11px; }
 
   .empty{
     text-align:center;
@@ -412,6 +465,29 @@
     outline:3px solid var(--gold);
     outline-offset:3px;
   }
+
+  .toast{
+    position:fixed;
+    bottom:2rem; left:50%;
+    transform:translateX(-50%) translateY(10px);
+    background:var(--navy-dark);
+    border:1.5px solid var(--gold);
+    color:var(--gold);
+    font-family:'Barlow Semi Condensed', sans-serif;
+    font-weight:700;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    font-size:0.78rem;
+    padding:0.7rem 1.4rem;
+    border-radius:2px;
+    box-shadow:0 10px 26px rgba(0,0,0,0.4);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.25s ease, transform 0.25s ease;
+    z-index:2000;
+    white-space:nowrap;
+  }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
 </style>
 </head>
 <body>
@@ -423,10 +499,16 @@
 
     <figure class="sign" id="featured"></figure>
     <br>
-    <button class="next-line" id="shuffle-btn" type="button">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
-      Next line
-    </button>
+    <div class="hero-actions">
+      <button class="next-line" id="shuffle-btn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        Next line
+      </button>
+      <button class="hero-share-btn" id="hero-share-btn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        Share this line
+      </button>
+    </div>
 
     <p class="hero-sub">One line taped above the locker room door at a time. The rest of the wall is below, search it or filter by who said it.</p>
   </header>
@@ -459,20 +541,57 @@
     <div class="credit">Nelson Road &middot; Est. 1897</div>
   </footer>
 
+  <div class="toast" id="toast">Link copied to clipboard</div>
+
 <script src="richmond-quotes-data.js"></script>
 <script>
   const featuredSign = document.getElementById('featured');
   const shuffleBtn = document.getElementById('shuffle-btn');
+  const heroShareBtn = document.getElementById('hero-share-btn');
   const board = document.getElementById('board');
   const chipsWrap = document.getElementById('chips');
   const searchInput = document.getElementById('search');
   const resultCount = document.getElementById('result-count');
   const emptyMsg = document.getElementById('empty');
+  const toastEl = document.getElementById('toast');
 
   let featuredIndex = -1;
   let activeChar = 'All';
   let searchTerm = '';
 
+  // ---------- Share / clipboard ----------
+  const shareIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>`;
+
+  let toastTimer = null;
+  function showToast(){
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2200);
+  }
+
+  function copyShareLink(id){
+    const url = new URL(window.location.href);
+    url.searchParams.set('id', id);
+    if (searchTerm.trim()) url.searchParams.set('q', searchTerm.trim());
+    else url.searchParams.delete('q');
+    navigator.clipboard.writeText(url.toString()).then(showToast).catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = url.toString();
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast();
+    });
+  }
+
+  heroShareBtn.addEventListener('click', () => {
+    if (featuredIndex >= 0) copyShareLink(quotes[featuredIndex].id);
+  });
+
+  // ---------- Featured sign ----------
   function showFeatured(index){
     featuredIndex = index;
     const q = quotes[index];
@@ -500,7 +619,6 @@
   }
 
   shuffleBtn.addEventListener('click', pickRandom);
-  pickRandom();
 
   const names = ['All', ...new Set(quotes.map(q => q.name))];
   names.forEach(name => {
@@ -534,14 +652,23 @@
     filtered.forEach((q, idx) => {
       const card = document.createElement('div');
       card.className = 'card';
+      card.id = `quote-${q.id}`;
       card.style.setProperty('--tilt', (idx % 3 === 0 ? '-1.3deg' : idx % 3 === 1 ? '0.8deg' : '-0.5deg'));
       card.innerHTML = `
         <div class="tape"></div>
         <div class="num">${q.n}</div>
         <blockquote>${highlight(q.text, term)}</blockquote>
         <footer><span>${highlight(q.name, term)}</span><span class="role">${q.role}</span></footer>
+        <button class="card-share" data-share-id="${q.id}" type="button">${shareIcon}Share</button>
       `;
       board.appendChild(card);
+    });
+
+    board.querySelectorAll('.card-share').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        copyShareLink(parseInt(btn.dataset.shareId, 10));
+      });
     });
 
     emptyMsg.style.display = filtered.length ? 'none' : 'block';
@@ -552,10 +679,42 @@
 
   searchInput.addEventListener('input', (e) => {
     searchTerm = e.target.value;
+    const url = new URL(window.location.href);
+    if (searchTerm.trim()) url.searchParams.set('q', searchTerm.trim());
+    else url.searchParams.delete('q');
+    url.searchParams.delete('id');
+    history.replaceState(null, '', url.toString());
     render();
   });
 
-  render();
+  // ---------- Init: honor ?id= and ?q= from a shared link ----------
+  (function init(){
+    const params = new URLSearchParams(window.location.search);
+    const qParam = params.get('q');
+    const idParam = params.get('id');
+
+    if (qParam){
+      searchTerm = qParam;
+      searchInput.value = qParam;
+    }
+
+    render();
+
+    const sharedIndex = idParam ? quotes.findIndex(q => q.id === parseInt(idParam, 10)) : -1;
+    if (sharedIndex >= 0){
+      showFeatured(sharedIndex);
+      const card = document.getElementById(`quote-${quotes[sharedIndex].id}`);
+      if (card){
+        setTimeout(() => {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          card.classList.add('flash');
+          setTimeout(() => card.classList.remove('flash'), 1800);
+        }, 300);
+      }
+    } else {
+      pickRandom();
+    }
+  })();
 </script>
 </body>
 </html>
