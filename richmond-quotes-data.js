@@ -31,7 +31,7 @@ const quotes = [
   { id: 26, n: 33, text: "If you can't practice, you can't practice. If you're hurt, you're hurt. It's as simple as that. But it ain't about that... at all. You're sitting in here. You're supposed to be the franchise player. And yet here we are, talking about you missing practice. We're talking about practice. You understand me? Practice. Not a game. Not a game. Not the game you go out there and die for. Right? Play every weekend like it's your last, right? No, we're talking about practice, man. Practice! You know you're supposed to be out there. You know you're supposed to lead by example. You're just shoving that all aside. And so here we are, Jamie. We're talking about practice. Not a game. Not the game. We're talking about practice, with your team. With your teammates. The only place we get to play together, we got control over. Rest of the time it's us 11 against those 11. We're talking about practice, man! I'm talking about practice! And you can't do it 'cause you're hurt. Right? It's fine by me.", name: "Ted Lasso", role: "Head Coach" },
   { id: 27, n: 66,  text: "I've heard that tune before, but here I am still dancing.", name: "Ted Lasso", role: "Head Coach" },
   { id: 28, n: 77,  text: "Feels different coach. I mean the same, but different.", name: "Ted Lasso", role: "Head Coach" },
-  { id: 29, n: 78,  text: "", name: "Ted Lasso", role: "Head Coach" },
-  { id: 29, n: 78,  text: "", name: "Ted Lasso", role: "Head Coach" },
+  { id: 29, n: 78,  text: "Bird by bird.", name: "Ted Lasso", role: "Head Coach" },
+  { id: 30, n: 79,  text: "", name: "Ted Lasso", role: "Head Coach" },
 
 ];
