@@ -11,7 +11,7 @@ const quotes = [
   { id: 6,  n: 5,  text: "F***", name: "Roy Kent", role: "Captain/Assistant Coach" },
   { id: 7,  n: 12,  text: "He's fine. That's it. Nothing wrong with that, most people are fine. But it's not about him. It's about why the f*** you think he deserves you. You deserve someone who makes you feel like you've been struck by f***ing lightning. Don't you dare settle for fine.", name: "Roy Kent", role: "Captain/Assistant Coach" },
   { id: 8,  n: 4,  text: "Fairytales do not start, nor do they end, in the dark forest. That’s something that only shows up smack dab in the middle of a story. But it will all work out.", name: "Ted Lasso", role: "Head Coach" },
-  { id: 9,  n: 17,  text: "He thinks he's mad now. Wait till we win him over. He'll be furious.", name: "Ted Lasso", role: "Head Coach" },
+  { id: 9,  n: 17,  text: "He thinks he's mad now. Wait till we win him over.", name: "Ted Lasso", role: "Head Coach" },
   { id: 10, n: 3,  text: "Just listen to your gut, OK? And on the way down to your gut, check in with your heart. Between those two things, they'll let you know what's what.", name: "Ted Lasso", role: "Head Coach" },
   { id: 11, n: 2,  text: "Doing the right thing is never the wrong thing.", name: "Ted Lasso", role: "Head Coach" },
   { id: 12, n: 15,  text: "Thank you and f*** you.", name: "Ted Lasso", role: "Head Coach" },
@@ -30,6 +30,8 @@ const quotes = [
   { id: 25, n: 50,  text: "Believe", name: "Diamond Dogs", role: "taped above the door", special: true },
   { id: 26, n: 33, text: "If you can't practice, you can't practice. If you're hurt, you're hurt. It's as simple as that. But it ain't about that... at all. You're sitting in here. You're supposed to be the franchise player. And yet here we are, talking about you missing practice. We're talking about practice. You understand me? Practice. Not a game. Not a game. Not the game you go out there and die for. Right? Play every weekend like it's your last, right? No, we're talking about practice, man. Practice! You know you're supposed to be out there. You know you're supposed to lead by example. You're just shoving that all aside. And so here we are, Jamie. We're talking about practice. Not a game. Not the game. We're talking about practice, with your team. With your teammates. The only place we get to play together, we got control over. Rest of the time it's us 11 against those 11. We're talking about practice, man! I'm talking about practice! And you can't do it 'cause you're hurt. Right? It's fine by me.", name: "Ted Lasso", role: "Head Coach" },
   { id: 27, n: 66,  text: "I've heard that tune before, but here I am still dancing.", name: "Ted Lasso", role: "Head Coach" },
-  { id: 28, n: 77,  text: "", name: "Ted Lasso", role: "Head Coach" },
+  { id: 28, n: 77,  text: "Feels different coach. I mean the same, but different.", name: "Ted Lasso", role: "Head Coach" },
+  { id: 29, n: 78,  text: "", name: "Ted Lasso", role: "Head Coach" },
+  { id: 29, n: 78,  text: "", name: "Ted Lasso", role: "Head Coach" },
 
 ];
