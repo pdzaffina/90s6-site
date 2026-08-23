@@ -7,10 +7,10 @@ const quotes = [
   { id: 2,  n: 24, text: "You know what the happiest animal on Earth is? It's a goldfish. Y'know why? It's got a 10-second memory. Be a goldfish.", name: "Ted Lasso", role: "Head Coach" },
   { id: 3,  n: 8,  text: "Football is life.", name: "Dani Rojas", role: "Player" },
   { id: 4,  n: 9,  text: "Are you mad? Pandas are fat and lazy and have p***-stained fur. Lions are powerful and majestic and rule the jungle.", name: "Rebecca Welton", role: "Club Owner" },
-  { id: 34,  n: 93,  text: "F*** the haters.", name: "Rebecca Welton", role: "Club Owner" },
+  { id: 35,  n: 93,  text: "F*** the haters.", name: "Rebecca Welton", role: "Club Owner" },
   { id: 5,  n: 10,  text: "I'm sort of famous for being almost famous.", name: "Keeley Jones", role: "Chief Marketing Officer" },
   { id: 6,  n: 5,  text: "F***.", name: "Roy Kent", role: "Captain/Assistant Coach" },
-  { id: 32,  n: 80,  text: "F***!", name: "Roy Kent", role: "Captain/Assistant Coach" },
+  { id: 36,  n: 80,  text: "F***!", name: "Roy Kent", role: "Captain/Assistant Coach" },
   { id: 7,  n: 12,  text: "He's fine. That's it. Nothing wrong with that, most people are fine. But it's not about him. It's about why the f*** you think he deserves you. You deserve someone who makes you feel like you've been struck by f***ing lightning. Don't you dare settle for fine.", name: "Roy Kent", role: "Captain/Assistant Coach" },
   { id: 8,  n: 4,  text: "Fairytales do not start, nor do they end, in the dark forest. That’s something that only shows up smack dab in the middle of a story. But it will all work out.", name: "Ted Lasso", role: "Head Coach" },
   { id: 9,  n: 17,  text: "He thinks he's mad now. Wait till we win him over.", name: "Ted Lasso", role: "Head Coach" },
@@ -37,6 +37,7 @@ const quotes = [
   { id: 30, n: 79,  text: "I've decided not to be scared of you any more.", name: "Keeley Jones", role: "Chief Marketing Officer" },
   { id: 31, n: 82,  text: "Someone call 911. I want to report a truth bomb.", name: "Ted Lasso", role: "Head Coach" },
   { id: 32, n: 85,  text: "Don't worry about it. You've got this. And if you ever have a moment, or if you don't got this, then you just call me, right?", name: "Keeley Jones", role: "Chief Marketing Officer" },
-  { id: 33, n: 86,  text: "", name: "Ted Lasso", role: "Head Coach" },
+  { id: 33, n: 86,  text: "Every disadvantage, has it's advantage.", name: "Rebecca Welton", role: "Club Owner" },
+  { id: 34, n: 86,  text: "", name: "Ted Lasso", role: "Head Coach" },
 
 ];
