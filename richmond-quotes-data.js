@@ -35,6 +35,7 @@ const quotes = [
   { id: 29, n: 78,  text: "Bird by bird.", name: "Ted Lasso", role: "Head Coach" },
   { id: 30, n: 79,  text: "I've decided not to be scared of you any more.", name: "Keeley Jones", role: "Chief Marketing Officer" },
   { id: 31, n: 82,  text: "Someone call 911. I want to report a truth bomb.", name: "Ted Lasso", role: "Head Coach" },
-  { id: 32, n: 85,  text: "", name: "Ted Lasso", role: "Head Coach" },
+  { id: 32, n: 85,  text: "Don't worry about it. You've got this. And if you ever have a moment, or if you don't got this, then you just call me, right?", name: "Keeley Jones", role: "Chief Marketing Officer" },
+  { id: 33, n: 86,  text: "", name: "Ted Lasso", role: "Head Coach" },
 
 ];
