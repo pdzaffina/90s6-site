@@ -39,6 +39,6 @@ const quotes = [
   { id: 32, n: 85,  text: "Don't worry about it. You've got this. And if you ever have a moment, or if you don't got this, then you just call me, right?", name: "Keeley Jones", role: "Chief Marketing Officer" },
   { id: 33, n: 86,  text: "Every disadvantage, has it's advantage.", name: "Rebecca Welton", role: "Club Owner" },
   { id: 34, n: 96,  text: "I'm a work in progmess.", name: "Ted Lasso", role: "Head Coach" },
-{ id: 35, n: 94, text: "WHISTLE!", name: "Roy Kent", role: "Assistant Coach"  },
+{ id: 35, n: 94, text: "WHISTLE! Whistle!", name: "Roy Kent", role: "Assistant Coach"  },
 
 ];
