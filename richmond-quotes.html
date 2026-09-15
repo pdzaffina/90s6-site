@@ -608,11 +608,15 @@
     featuredIndex = index;
     const q = quotes[index];
 
-    if (q.special){
+    featuredSign.classList.remove('is-believe', 'is-believe-blue');
+
+    if (q.special === 'blue'){
+      featuredSign.classList.add('is-believe-blue');
+      featuredSign.innerHTML = `<div class="believe-word">${q.text}</div>`;
+    } else if (q.special){
       featuredSign.classList.add('is-believe');
       featuredSign.innerHTML = `<div class="believe-word">${q.text}</div>`;
     } else {
-      featuredSign.classList.remove('is-believe');
       featuredSign.innerHTML = `
         <div class="tag">Line of the day</div>
         <blockquote>${q.text}</blockquote>
