@@ -170,6 +170,22 @@
     transform:skewY(-1.5deg);
   }
 
+  /* ---------- Special: blue sign, gold text ---------- */
+  .sign.is-believe-blue{
+    background:var(--sharpie-blue);
+    border:none;
+    padding:2.6rem 3.4rem;
+    transform:rotate(-2.2deg);
+    box-shadow:0 22px 46px rgba(0,0,0,0.5);
+    animation:sign-drop 0.5s ease;
+  }
+  .sign.is-believe-blue::before, .sign.is-believe-blue::after{
+    background:rgba(255,199,44,0.55);
+  }
+  .sign.is-believe-blue .believe-word{
+    color:var(--gold);
+  }
+
   .next-line{
     position:relative; z-index:1;
     display:inline-flex;
