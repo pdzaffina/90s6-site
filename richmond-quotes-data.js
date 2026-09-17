@@ -44,5 +44,6 @@ const quotes = [
   { id: 39,  n: 80,  text: "F***!", name: "Roy Kent", role: "Captain/Assistant Coach" },
   { id: 40, n: 500,  text: "Believe", name: "Diamond Dogs", role: "taped above the door", special: 'blue' },
   { id: 41,  n: 93,  text: "Stop letting yesterday get in the way of today.", name: "Rebecca Welton", role: "Club Owner" },
+  { id: 42,  n: 308,  text: "Find out before you flip out.", name: "Leslie Higgins", role: "Chief of Football Ops" },
   
 ];
