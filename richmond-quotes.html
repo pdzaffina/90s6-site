@@ -87,16 +87,6 @@
     box-shadow:0 18px 40px rgba(0,0,0,0.45);
     border:2px solid #e4dcc4;
   }
-  .sign::before, .sign::after{
-    content:"";
-    position:absolute;
-    width:70px; height:26px;
-    background:rgba(255,199,44,0.55);
-    top:-14px;
-    box-shadow:0 2px 4px rgba(0,0,0,0.2);
-  }
-  .sign::before{ left:-18px; transform:rotate(-38deg); }
-  .sign::after{ right:-18px; transform:rotate(38deg); }
   .sign .tag{
     font-family:'Barlow Semi Condensed', sans-serif;
     font-weight:700;
@@ -134,6 +124,19 @@
     margin-top:0.15rem;
   }
 
+  /* ---------- Tape: four black corners on every sign ---------- */
+  .tape{
+    position:absolute;
+    width:70px; height:26px;
+    background:#1a1a1a;
+    box-shadow:0 2px 4px rgba(0,0,0,0.3);
+    z-index:2;
+  }
+  .tape-tl{ left:-18px; top:-14px; transform:rotate(-38deg); }
+  .tape-tr{ right:-18px; top:-14px; transform:rotate(38deg); }
+  .tape-bl{ left:-18px; bottom:-14px; transform:rotate(38deg); }
+  .tape-br{ right:-18px; bottom:-14px; transform:rotate(-38deg); }
+
   /* ---------- Special: the Believe sign ---------- */
   .sign.is-believe{
     background:var(--gold);
@@ -142,9 +145,6 @@
     transform:rotate(-2.2deg);
     box-shadow:0 22px 46px rgba(0,0,0,0.5);
     animation:sign-drop 0.5s ease;
-  }
-  .sign.is-believe::before, .sign.is-believe::after{
-    background:rgba(243,236,221,0.85);
   }
   @keyframes sign-drop{
     0%{ transform:rotate(-2.2deg) translateY(-14px) scale(0.96); opacity:0; }
@@ -170,7 +170,7 @@
     transform:skewY(-1.5deg);
   }
 
-  /* ---------- Special: blue sign, gold text,  note ---------- */
+  /* ---------- Special: blue sign, gold text, sticky note ---------- */
   .sign.is-believe-blue{
     background:var(--sharpie-blue);
     border:none;
@@ -178,9 +178,6 @@
     transform:rotate(-2.2deg);
     box-shadow:0 22px 46px rgba(0,0,0,0.5);
     animation:sign-drop 0.5s ease;
-  }
-  .sign.is-believe-blue::before, .sign.is-believe-blue::after{
-    background:rgba(255,199,44,0.55);
   }
   .sign.is-believe-blue .believe-word{
     color:var(--gold);
@@ -216,7 +213,7 @@
     text-decoration:underline;
     text-decoration-style:double;
     text-decoration-color:#1a1a1a;
-    text-decoration-thickness:1px;
+    text-decoration-thickness:2px;
     text-underline-offset:3px;
   }
 
@@ -406,7 +403,7 @@
     top:-10px; left:50%;
     transform:translateX(-50%) rotate(-3deg);
     width:56px; height:20px;
-    background:rgba(255,255,255,0.6); /*rgba(255,199,44,0.6)  */
+    background:rgba(255,199,44,0.6);
     box-shadow:0 2px 3px rgba(0,0,0,0.2);
   }
   .card .num{
@@ -559,7 +556,13 @@
   <header class="hero">
     <div class="eyebrow">Nelson Road, London</div>
 
-    <figure class="sign" id="featured"></figure>
+    <figure class="sign" id="featured">
+      <span class="tape tape-tl"></span>
+      <span class="tape tape-tr"></span>
+      <span class="tape tape-bl"></span>
+      <span class="tape tape-br"></span>
+      <div class="sign-content" id="featured-content"></div>
+    </figure>
     <br>
     <div class="hero-actions">
       <button class="next-line" id="shuffle-btn" type="button">
@@ -608,6 +611,7 @@
 <script src="richmond-quotes-data.js"></script>
 <script>
   const featuredSign = document.getElementById('featured');
+  const featuredContent = document.getElementById('featured-content');
   const shuffleBtn = document.getElementById('shuffle-btn');
   const heroShareBtn = document.getElementById('hero-share-btn');
   const board = document.getElementById('board');
@@ -662,12 +666,12 @@
 
     if (q.special === 'blue'){
       featuredSign.classList.add('is-believe-blue');
-      featuredSign.innerHTML = `<div class="believe-word">${q.text}</div><div class="sticky-note">AND<br><span class="win-line">WIN</span></div>`;
+      featuredContent.innerHTML = `<div class="believe-word">${q.text}</div><div class="sticky-note">AND<br><span class="win-line">WIN</span></div>`;
     } else if (q.special){
       featuredSign.classList.add('is-believe');
-      featuredSign.innerHTML = `<div class="believe-word">${q.text}</div>`;
+      featuredContent.innerHTML = `<div class="believe-word">${q.text}</div>`;
     } else {
-      featuredSign.innerHTML = `
+      featuredContent.innerHTML = `
         <div class="tag">Line of the day</div>
         <blockquote>${q.text}</blockquote>
         <figcaption>
