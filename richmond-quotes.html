@@ -170,7 +170,7 @@
     transform:skewY(-1.5deg);
   }
 
-  /* ---------- Special: blue sign, gold text ---------- */
+  /* ---------- Special: blue sign, gold text, sticky note ---------- */
   .sign.is-believe-blue{
     background:var(--sharpie-blue);
     border:none;
@@ -184,6 +184,37 @@
   }
   .sign.is-believe-blue .believe-word{
     color:var(--gold);
+  }
+  .sticky-note{
+    position:absolute;
+    right:12%;
+    bottom:6%;
+    width:92px;
+    background:#F5E642;
+    color:#1a1a1a;
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    font-size:1.5rem;
+    line-height:1.05;
+    text-align:center;
+    padding:12px 10px 9px;
+    transform:rotate(9deg);
+    box-shadow:0 8px 16px rgba(0,0,0,0.4);
+    z-index:5;
+  }
+  .sticky-note::before{
+    content:"";
+    position:absolute;
+    top:-9px; left:50%;
+    transform:translateX(-50%) rotate(-4deg);
+    width:44px; height:16px;
+    background:rgba(255,255,255,0.75);
+    box-shadow:0 2px 3px rgba(0,0,0,0.2);
+  }
+  .sticky-note .win-line{
+    display:inline-block;
+    border-bottom:2px solid #1a1a1a;
+    padding-bottom:1px;
   }
 
   .next-line{
@@ -628,7 +659,7 @@
 
     if (q.special === 'blue'){
       featuredSign.classList.add('is-believe-blue');
-      featuredSign.innerHTML = `<div class="believe-word">${q.text}</div>`;
+      featuredSign.innerHTML = `<div class="believe-word">${q.text}</div><div class="sticky-note">AND<br><span class="win-line">WIN</span></div>`;
     } else if (q.special){
       featuredSign.classList.add('is-believe');
       featuredSign.innerHTML = `<div class="believe-word">${q.text}</div>`;
