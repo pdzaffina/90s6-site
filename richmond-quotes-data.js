@@ -47,5 +47,6 @@ const quotes = [
   { id: 42, n: 308,  text: "Find out before you flip out.", name: "Leslie Higgins", role: "Chief of Football Ops" },
   { id: 43, n: 308,  text: "The Eiffel Tower is just a lamp post with a publicist.", name: "Rebecca Welton", role: "Club Owner" },
   { id: 44, n: 401,  text: "You can always give up tomorrow.", name: "Matthijs", role: "Airline Pilot" },
+  { id: 45, n: 101, text: "Rebecca: 'Do you believe in Ghosts Ted?'\\nTed: 'I do. But more importantly, I think they need to believe in themselves.'", name: "Ted Lasso", role: "Head Coach" }, 
   
 ];
