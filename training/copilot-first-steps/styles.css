@@ -27,3 +27,8 @@ body{font-family:'Cormorant Garamond',Georgia,serif;background:#0A192F;color:#F5
 .library-hero-mark{display:flex;align-items:center;justify-content:center;gap:18px}
 .library-hero-mark img{display:block;width:112px;height:112px;object-fit:contain;background:#fff;border-radius:18px;padding:5px}
 @media(max-width:750px){.copilot-brand-icon{width:28px;height:28px}.hero-copilot-mark{width:60px;height:60px;top:6px;right:6px}.library-hero-mark img{width:86px;height:86px}}
+
+/* Real Copilot model-selection screen recording */
+.model-selector-demo{margin:18px 0 24px;padding:12px;background:var(--card);border:1px solid var(--border);border-radius:14px}
+.model-selector-demo video{display:block;width:100%;height:auto;max-height:520px;background:#111;border-radius:8px}
+.model-selector-demo figcaption{font-size:13px;line-height:1.5;color:var(--muted);padding:10px 4px 2px}
