@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Course Content Editor | 90S6</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="content-editor.css">
+</head>
+<body>
+<header class="site-header editor-header">
+  <div class="brand"><a class="brand-mark" href="https://90s6.com" aria-label="90S6 home">90</a><div><strong>90S6 <span class="brand-divider">/</span> Content Studio</strong><small>COURSE CONTENT EDITOR</small></div></div>
+  <div class="editor-header-actions"><span id="saveStatus" role="status">Draft not saved yet</span><a class="outline library-action" href="index.html">View course ↗</a></div>
+</header>
+<main class="editor-wrap">
+  <section class="editor-intro"><p class="eyebrow">EDIT THE MATERIAL, NOT THE CODE</p><h1>Course Content Studio</h1><p>Update lesson copy and prompts in one place. Your working draft stays in this browser until you export the updated content files.</p></section>
+  <div class="editor-toolbar">
+    <div class="editor-tabs" role="tablist" aria-label="Content type">
+      <button class="editor-tab active" id="lessonsTab" type="button">Lessons <span id="lessonCount"></span></button>
+      <button class="editor-tab" id="promptsTab" type="button">Prompt Library <span id="promptCount"></span></button>
+    </div>
+    <div class="export-actions"><button class="outline" id="resetDraft" type="button">Discard browser draft</button><button class="primary" id="exportAll" type="button">Export updated content files ↓</button></div>
+  </div>
+  <section id="lessonsPanel" class="editor-panel">
+    <aside class="editor-sidebar"><div class="sidebar-head"><h2>Lessons</h2><span>Choose a lesson to edit</span></div><div id="lessonList" class="editor-list"></div></aside>
+    <div class="editor-workspace">
+      <div class="workspace-heading"><div><p class="eyebrow">LESSON DETAILS</p><h2 id="lessonEditorTitle">Select a lesson</h2></div><span id="lessonPosition" class="editor-count"></span></div>
+      <div id="lessonForm" class="field-grid">
+        <label>Lesson title<input id="lessonTitle" type="text"></label>
+        <label>Icon / symbol<input id="lessonIcon" type="text" maxlength="8"></label>
+        <label>Estimated time<input id="lessonTime" type="text" placeholder="e.g. 5 min"></label>
+        <label class="span-two">Short description <small>Shown on the lesson card</small><textarea id="lessonShort" rows="2"></textarea></label>
+        <label class="span-two">Introduction <small>Shown at the top of the lesson</small><textarea id="lessonIntro" rows="3"></textarea></label>
+      </div>
+      <div class="sections-heading"><div><h3>Lesson sections</h3><p>Edit each heading and its explanation. Add or remove sections as needed.</p></div><button class="outline" id="addSection" type="button">+ Add section</button></div>
+      <div id="sectionEditor" class="section-editor"></div>
+      <div class="prompt-edit-area"><div class="sections-heading"><div><h3>Practice prompts</h3><p>These appear inside the lesson as copyable examples.</p></div></div><div id="lessonPromptEditor"></div><button class="outline" id="addLessonPrompt" type="button">+ Add practice prompt</button></div>
+    </div>
+  </section>
+  <section id="promptsPanel" class="editor-panel hidden">
+    <aside class="editor-sidebar"><div class="sidebar-head"><h2>Prompt Library</h2><span>Choose a prompt to edit</span></div><div id="promptList" class="editor-list"></div><button class="outline add-prompt-button" id="addLibraryPrompt" type="button">+ Add prompt</button></aside>
+    <div class="editor-workspace">
+      <div class="workspace-heading"><div><p class="eyebrow">PROMPT LIBRARY ITEM</p><h2 id="promptEditorTitle">Select a prompt</h2></div><span id="promptPosition" class="editor-count"></span></div>
+      <div class="field-grid">
+        <label>Prompt title<input id="promptTitle" type="text"></label>
+        <label>Category<input id="promptCategory" type="text" placeholder="e.g. Meetings and Notes"></label>
+        <label class="span-two">Description<textarea id="promptDescription" rows="2"></textarea></label>
+        <label class="span-two">Prompt text <small>Use [BRACKETS] for details the learner should replace.</small><textarea id="promptText" rows="10"></textarea></label>
+        <label class="span-two">Tags <small>Separate tags with commas.</small><input id="promptTags" type="text"></label>
+      </div>
+      <div class="prompt-actions"><button class="outline danger" id="deleteLibraryPrompt" type="button">Delete this prompt</button></div>
+    </div>
+  </section>
+  <section class="export-note"><strong>How publishing works</strong><p>When your edits are ready, export the content files. Replace <code>use-cases-data.js</code> and/or <code>prompts-data.js</code> in the <code>copilot-first-steps</code> folder in GitHub with the downloaded files. The course pages read from those files automatically. Exporting does not publish changes by itself.</p></section>
+</main>
+<script src="use-cases-data.js"></script>
+<script src="prompts-data.js"></script>
+<script src="content-editor.js"></script>
+</body></html>
