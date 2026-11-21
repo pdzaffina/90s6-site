@@ -3,3 +3,17 @@
 .lesson-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.lesson-card{min-height:245px}.external-link{display:inline-block;text-decoration:none;margin:20px 0;padding:14px 20px;border-radius:9px}.gif-placeholder{border:2px dashed var(--border);background:var(--bg);border-radius:15px;padding:20px;text-align:center;margin:16px 0}.gif-placeholder img{max-width:100%;max-height:280px;object-fit:contain}.gif-fallback{font-size:30px;color:var(--maroon);padding:30px 12px}.gif-fallback small{display:block;font-size:14px;color:var(--muted)}.prompt-box p{white-space:pre-wrap}.prompt-box button{margin-top:12px}@media(max-width:900px){.lesson-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:480px){.lesson-grid{grid-template-columns:1fr}}
 
 .hero-art-image{display:flex;align-items:center;justify-content:center;overflow:visible}.hero-art-image img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}@media(max-width:750px){.hero-art-image{height:auto;min-height:190px}.hero-art-image img{height:auto;max-height:320px}}
+
+/* 90S6 brand alignment */
+body{font-family:'Cormorant Garamond',Georgia,serif;background:#0A192F;color:#F5F7FA}
+.site-header{background:#0A192F;border-bottom-color:rgba(112,128,144,.3);box-shadow:0 8px 30px rgba(0,0,0,.18);color:#F5F7FA}
+.brand strong,.section-head h2,.phone-banner h3,.lesson-heading h1,.exercise h3{font-family:'Syne',sans-serif}
+.brand small,.eyebrow,.header-progress,.time-pill,.pill,.card-time,.done-tag,footer{font-family:'DM Mono',monospace}
+.brand-mark{background:#006BB6;color:#fff;transform:none;border-radius:2px;font-family:'Syne',sans-serif;font-size:22px;font-weight:800;letter-spacing:-2px}
+.brand-divider{color:#006BB6}
+.lesson-card,.lesson-shell,.exercise,.prompt-box{background:#10243F;border-color:#29415C;color:#F5F7FA}
+.phone-banner,.benefits{background:#122B46}
+.lesson-card:last-child{background:#173653}
+.prompt-box button,.primary{background:#006BB6;border-color:#006BB6}
+.outline{background:transparent;border-color:#006BB6;color:#F5F7FA}
+.outline:hover{background:rgba(0,107,182,.15)}
