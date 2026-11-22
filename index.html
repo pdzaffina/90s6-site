@@ -761,6 +761,16 @@ footer {
   footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
 }
+
+/* Compact 90S6 appearance control */
+.nav-actions .theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:38px;padding:0 13px;border:1px solid rgba(112,128,144,.35);border-radius:999px;background:rgba(112,128,144,.10);color:var(--cloud);font:600 10px/1 var(--ff-ui);letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;cursor:pointer;transition:background .2s,border-color .2s,transform .2s,color .2s;}
+.nav-actions .theme-toggle:hover{border-color:var(--honolulu);background:var(--honolulu15);transform:translateY(-1px)}
+.nav-actions .theme-toggle:focus-visible{outline:2px solid var(--honolulu);outline-offset:3px}
+.nav-actions .theme-toggle svg{width:16px;height:16px;flex:none;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+:root[data-theme="light"] .nav-actions .theme-toggle{background:rgba(10,25,47,.045);border-color:rgba(10,25,47,.20);color:#0A192F}
+:root[data-theme="light"] .nav-actions .theme-toggle:hover{background:rgba(0,107,182,.09);border-color:#006BB6}
+@media(max-width:600px){.nav-actions .theme-toggle{padding:0 10px;min-width:38px}.nav-actions .theme-toggle .theme-label{display:none}}
+@media(prefers-reduced-motion:reduce){.nav-actions .theme-toggle{transition:none}}
 </style>
 </head>
 <body>
